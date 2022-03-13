@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { BrowserTabState } from '../ngx-browser-tabs.component';
+import { BrowserTab } from '../ngx-browser-tabs.component';
 
 @Component({
   selector: 'lib-test-component',
   templateUrl: './test-component.component.html',
   styleUrls: ['./test-component.component.css']
 })
-export class TestComponentComponent implements OnInit, BrowserTabState {
+export class TestComponentComponent implements OnInit, BrowserTab {
 
   timeCreate: Date;
 
