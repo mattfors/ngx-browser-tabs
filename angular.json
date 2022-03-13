@@ -3,11 +3,42 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "ngx-browser-tabs": {
+      "projectType": "library",
+      "root": "projects/ngx-browser-tabs",
+      "sourceRoot": "projects/ngx-browser-tabs/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-browser-tabs/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-browser-tabs/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-browser-tabs/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-browser-tabs/src/test.ts",
+            "tsConfig": "projects/ngx-browser-tabs/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-browser-tabs/karma.conf.js"
+          }
+        }
+      }
+    },
     "ngx-browser-tabs-showcase": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "style": "scss"
         },
         "@schematics/angular:application": {
           "strict": true
@@ -25,13 +56,13 @@
             "main": "projects/ngx-browser-tabs-showcase/src/main.ts",
             "polyfills": "projects/ngx-browser-tabs-showcase/src/polyfills.ts",
             "tsConfig": "projects/ngx-browser-tabs-showcase/tsconfig.app.json",
-            "inlineStyleLanguage": "sass",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ngx-browser-tabs-showcase/src/favicon.ico",
               "projects/ngx-browser-tabs-showcase/src/assets"
             ],
             "styles": [
-              "projects/ngx-browser-tabs-showcase/src/styles.sass"
+              "projects/ngx-browser-tabs-showcase/src/styles.scss"
             ],
             "scripts": []
           },
@@ -93,46 +124,15 @@
             "polyfills": "projects/ngx-browser-tabs-showcase/src/polyfills.ts",
             "tsConfig": "projects/ngx-browser-tabs-showcase/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-browser-tabs-showcase/karma.conf.js",
-            "inlineStyleLanguage": "sass",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ngx-browser-tabs-showcase/src/favicon.ico",
               "projects/ngx-browser-tabs-showcase/src/assets"
             ],
             "styles": [
-              "projects/ngx-browser-tabs-showcase/src/styles.sass"
+              "projects/ngx-browser-tabs-showcase/src/styles.scss"
             ],
             "scripts": []
-          }
-        }
-      }
-    },
-    "ngx-browser-tabs": {
-      "projectType": "library",
-      "root": "projects/ngx-browser-tabs",
-      "sourceRoot": "projects/ngx-browser-tabs/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ngx-browser-tabs/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ngx-browser-tabs/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ngx-browser-tabs/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-browser-tabs/src/test.ts",
-            "tsConfig": "projects/ngx-browser-tabs/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-browser-tabs/karma.conf.js"
           }
         }
       }
