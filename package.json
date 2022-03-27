@@ -1,6 +1,23 @@
 {
   "name": "ngx-browser-tabs",
   "version": "0.0.0",
+  "description": "Angular 2 component for browser style tabs. ",
+  "author": "Matthew Fors",
+  "homepage": "https://github.com/mattfors/ngx-browser-tabs",
+  "bugs": {
+    "url": "https://github.com/mattfors/ngx-browser-tabs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattfors/ngx-browser-tabs"
+  },
+  "license" : "MIT",
+  "keywords": [
+    "angular",
+    "typescript",
+    "tab",
+    "tabs"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
