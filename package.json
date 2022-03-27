@@ -1,6 +1,6 @@
 {
   "name": "ngx-browser-tabs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Angular 2 component for browser style tabs. ",
   "author": "Matthew Fors",
   "homepage": "https://github.com/mattfors/ngx-browser-tabs",
