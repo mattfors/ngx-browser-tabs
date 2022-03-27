@@ -2,14 +2,18 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgxBrowserTabsComponent } from './ngx-browser-tabs.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { TestComponentComponent } from './test-component/test-component.component';
+import { BrowserTabBarComponent } from './browser-tab-bar/browser-tab-bar.component';
+import { NbtContextMenuUiComponent } from './context-menu/nbt-context-menu-ui.component';
+import { TabBarUiComponent } from './tab-bar-ui/tab-bar-ui.component';
 
 
 
 @NgModule({
   declarations: [
     NgxBrowserTabsComponent,
-    TestComponentComponent,
+    BrowserTabBarComponent,
+    NbtContextMenuUiComponent,
+    TabBarUiComponent,
   ],
   imports: [
     CommonModule,

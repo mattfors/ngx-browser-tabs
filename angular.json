@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ngx-browser-tabs",
       "sourceRoot": "projects/ngx-browser-tabs/src",
-      "prefix": "lib",
+      "prefix": "nbt",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

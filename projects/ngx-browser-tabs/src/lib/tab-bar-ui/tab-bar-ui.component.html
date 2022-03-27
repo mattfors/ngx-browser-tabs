@@ -1,0 +1,23 @@
+<div class="nbt-tab-container"
+     #tabContainer
+     (mouseenter)="mouseEnterTab()"
+     (mouseleave)="mouseLeaveTab()"
+     cdkDropList
+     cdkDropListOrientation="horizontal"
+     (cdkDropListDropped)="tabDropped.emit($event)">
+  <div
+    cdkDrag
+    #tabElements
+    class="nbt-tab"
+    [class.tab-selected]="selectedIndex === i"
+    [style.max-width.px]="tabWidth"
+    *ngFor="let tab of tabs; index as i"
+    (click)="tabClick.emit(i)"
+    (contextmenu)="rightClick(i, $event)">
+    <span class="nbt-tab-title">{{tab.title}}</span> <div class="nbt-tab-close" (click)="close(i)">&#215;</div>
+  </div>
+  <div class="nbt-tab-add" (click)="add.emit()">
+    +
+  </div>
+
+</div>

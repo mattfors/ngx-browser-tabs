@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 
@@ -7,9 +7,9 @@ import { moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class NgxBrowserTabsService {
 
-  tabs: BrowserTabState[] = [];
+  tabs: NbtTab[] = [];
 
-  tabSelected = new Subject<BrowserTabState>();
+  tabSelected = new Subject<NbtTab>();
   selectedIndex = new BehaviorSubject<number>(-1);
 
   saveStateCallback: () => any = () => {};
@@ -31,11 +31,14 @@ export class NgxBrowserTabsService {
   }
 
   closeOther(index: number): void {
+    const notCurrentlyFocused =  this.selectedIndex.value !== index;
     this.saveCurrentState();
     this.tabs.splice(index + 1, this.tabs.length - 1)
     this.tabs.splice(0, index)
     this.selectedIndex.next(0);
-    this.tabSelected.next(this.tabs[0]);
+    if (notCurrentlyFocused) {
+      this.tabSelected.next(this.tabs[0]);
+    }
   }
 
   closeToRight(index: number): void {
@@ -54,26 +57,26 @@ export class NgxBrowserTabsService {
     this.tabSelected.next(this.tabs[toIndex]);
   }
 
-  addTab(tab: BrowserTabState): void {
+  addTab(tab: NbtTab): void {
     this.saveCurrentState();
     this.tabs.push(tab)
     this.selectTab(this.tabs.length - 1);
   }
 
+  currentTab(): NbtTab {
+    return this.tabs[this.selectedIndex.value];
+  }
+
   private saveCurrentState(): void {
     if (this.tabs[this.selectedIndex.value]) {
-      this.tabs[this.selectedIndex.value].state = this.saveStateCallback();
+      this.tabs[this.selectedIndex.value].data = this.saveStateCallback();
     }
   }
 
 }
 
-export declare interface BrowserTabSelectedEvent {
-  previousIndex: number;
-  selectedTabState: BrowserTabState;
-}
-
-export declare interface BrowserTabState {
+export declare interface NbtTab {
   title: string;
-  state?: any;
+  component: Type<any>;
+  data?: any;
 }

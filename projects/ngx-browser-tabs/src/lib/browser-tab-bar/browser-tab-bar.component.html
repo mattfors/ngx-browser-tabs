@@ -1,0 +1,21 @@
+<nbt-tab-bar-ui
+  (tabClick)="tabClick.emit($event)"
+  (tabRightClick)="showContextMenu($event)"
+  (tabClose)="tabClose.emit($event)"
+  (tabDropped)="tabDropped.emit($event)"
+  (add)="add.emit()"
+  [tabs]="tabs"
+  [selectedIndex]="selectedIndex"
+  [tabMaxWidth]="tabMaxWidth"
+></nbt-tab-bar-ui>
+<lib-browser-tab-context-menu
+  (close)="tabClose.emit(contextIndex)"
+  (add)="add.emit($event)"
+  (closeToRight)="closeToRight.emit(contextIndex)"
+  (closeOther)="closeOther.emit(contextIndex)"
+  [show]="isDisplayContextMenu"
+  [positionX]="contextX"
+  [positionY]="contextY"
+  [closeOtherEnabled]="closeOtherEnabled"
+  [closeToRightEnabled]="closeToRightEnabled"
+></lib-browser-tab-context-menu>

@@ -1,0 +1,25 @@
+<div
+  class="nbt-context-menu"
+  [style.left.px]="positionX"
+  [style.top.px]="positionY"
+  *ngIf="show"
+>
+  <ul class="nbt-context-menu-list">
+    <li class="nbt-context-menu-item-enabled" (click)="add.emit()">
+      New Tab
+    </li>
+    <hr>
+    <li class="nbt-context-menu-item-enabled" (click)="close.emit()">
+      Close
+    </li>
+    <li
+      (click)="closeOther.emit()"
+      [ngClass]="closeOtherEnabled ? 'nbt-context-menu-item-disabled' : 'nbt-context-menu-item-enabled'"
+    >
+      Close Other Tabs
+    </li>
+    <li (click)="closeToRight.emit()" [ngClass]="closeToRightEnabled ? 'nbt-context-menu-item-disabled' : 'nbt-context-menu-item-enabled'">
+      Close Tabs to the Right
+    </li>
+  </ul>
+</div>
